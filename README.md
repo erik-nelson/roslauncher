@@ -1,13 +1,13 @@
 # roslauncher:
 
-##A python-based roslaunch utility
+## A python-based roslaunch utility
 
-##To download:
+## To download:
 
   cd ~/DOWNLOAD_PATH
   git clone git@nmichael.frc.ri.cmu.edu:enelson/roslauncher.git
 
-##Uses:
+## Uses:
 
 Get a list of available flags
 
