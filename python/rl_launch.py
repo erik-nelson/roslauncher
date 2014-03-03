@@ -3,6 +3,8 @@ import os, subprocess
 # ******************************************************************************************************************************** #
 def run(TOP_DIR, FILENAME):
 
+  FILENAME.replace('.launch', '')
+
   # Get the packages and launch file names from launch.config
   launch_conf = TOP_DIR + '/config/launch.config'
 

@@ -23,19 +23,19 @@ Scan a ROS/catkin directory and cache launch files beneath it:
 
 Get a list of launch files available for editing and/or launching
 
-      ./roslauncher.py --list
+      ./roslauncher.py -l
 
 
 
 Launch a launch file known to roslauncher (to see a list of files known to roslauncher, use ./roslauncher --list)
 
-      ./roslauncher.py -l ROS_PACKAGE/LAUNCH_FILE
+      ./roslauncher.py ROS_PACKAGE/LAUNCH_FILE
 
 
 
 For example to launch the test.launch file in the ROS package named example_graph_slam:
 
-      ./roslauncher.py -l example_graph_slam/test
+      ./roslauncher.py example_graph_slam/test
 
 
 
@@ -56,9 +56,6 @@ Rename a launch file: NOT CURRENTLY SUPPORTED
       ./roslauncher.py -r ROS_PACKAGE/LAUNCH_FILE
 
 
+To call roslauncher from anywhere, set up an alias in your .bashrc file
 
-Launch roslauncher in terminal menu mode: NOT CURRENTLY SUPPORTED
-
-      ./roslauncher.py
-
-
+      echo "alias roslauncher='PYTHONPATH=${PYTHONPATH}:~/PATH_TO_ROSLAUNCHER/python python ~/PATH_TO_ROSLAUNCHER/roslauncher" >> ~/.bashrc
