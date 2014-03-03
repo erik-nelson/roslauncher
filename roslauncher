@@ -2,6 +2,7 @@
 
 # ******************************************************************************************************************************** #
 def respawn() :
+  sys.argv.append('--help')
   python = sys.executable
   os.execl(python, python, * sys.argv)
 
@@ -35,10 +36,13 @@ def first_run(TOP_DIR) :
 
     # Write the user-specified configurations to configuration file
     # NOTE: The config folder now exists, since rl_scan created it
-    with open(CONF_DIR + '/user.conf', 'w+') as f:
+    with open(CONF_DIR + '/user.config', 'w+') as f:
       f.writelines('\n'.join( ['ros_dir: ' + ROS_DIR, 'editor: ' + EDITOR] ) )
 
-    print '\n\n\tThank you. Respawning roslauncher now.\n\n'
+    print '\n\n'
+    print '*'*80 + '\n' + '*'*80
+    print '\t\tThank you. Displaying help options now'
+    print '*'*80 + '\n' + '*'*80 + '\n'
 
     # It is the user's first time using this program
     return True
@@ -61,6 +65,7 @@ def parse_arguments(TOP_DIR) :
   parser.add_argument('-r',              help='rename a roslaunch file',                           required=False, dest='rename')
   parser.add_argument('-a',              help='add a roslaunch file',                              required=False, dest='add')
   parser.add_argument('-s',              help='scan a root directory for launch files beneath it', required=False, dest='scan')
+  parser.add_argument('-p',              help='search a launch file for param files to edit',      required=False, dest='param')
   parser.add_argument('-l',              help='list all roslaunch known files',                    required=False, dest='list', action='store_true')
 
   # Get the user's flags
@@ -89,6 +94,10 @@ def parse_arguments(TOP_DIR) :
       SCAN_DIR = args['scan']
       rl_scan.run(TOP_DIR, SCAN_DIR)
 
+    elif (args['param']):
+      FILENAME = args['param']
+      rl_param.run(TOP_DIR, FILENAME)
+
     elif (args['list']):
       rl_list.run(TOP_DIR)
 
@@ -116,7 +125,8 @@ if __name__=='__main__':
          rl_edit,\
          rl_rename,\
          rl_add,\
-         rl_scan\
+         rl_scan,\
+         rl_param\
 
   if ( not first_run(TOP_DIR) ):
     parse_arguments(TOP_DIR)

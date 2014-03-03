@@ -6,7 +6,7 @@ def run(TOP_DIR, FILENAME):
   FILENAME.replace('.launch', '')
 
   # Get preferred editor from config/user.conf file
-  with open(TOP_DIR + '/config/user.conf') as f:
+  with open(TOP_DIR + '/config/user.config') as f:
     editor_line = [line for line in f if 'editor' in line][0]
 
   EDITOR = editor_line.replace('editor: ', '').rstrip()

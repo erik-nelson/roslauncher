@@ -1,4 +1,4 @@
-import os
+import os, fileinput
 
 # ******************************************************************************************************************************** #
 def scan(SCAN_DIR):
@@ -9,7 +9,7 @@ def scan(SCAN_DIR):
       yield os.path.join(path, f)
 
 # ******************************************************************************************************************************** #
-def store(TOP_DIR, launch_files):
+def store(TOP_DIR, SCAN_DIR, launch_files):
 
   # Open up the config file and update
   print '\tUpdating launch.config'
@@ -30,6 +30,15 @@ def store(TOP_DIR, launch_files):
       line = package + '/' + filename + ': ' + launch + '\n'
       f.write(line)
 
+  # Replace the old launch file top directory from user.config
+  USER_FILE = TOP_DIR + '/config/user.config'
+  if (os.path.exists(USER_FILE)):
+    for line in fileinput.input(USER_FILE, inplace=1):
+      if 'ros_dir' in line:
+        print 'ros_dir: ' + SCAN_DIR
+      else:
+        print line
+
   # Print some user output saying which files we found
   print '\n\tFound the following launch files:'
   found = [('\t' + launch) for launch in launch_files]
@@ -46,7 +55,7 @@ def run(TOP_DIR, SCAN_DIR):
   print '\n\tOne moment, scanning path \"' + SCAN_DIR + '\" for launch files'
 
   launch_files = [f for f in scan(SCAN_DIR) if f.endswith('.launch')]
-  store(TOP_DIR, launch_files)
+  store(TOP_DIR, SCAN_DIR, launch_files)
 
   print '\tScan complete!'
 
