@@ -21,7 +21,7 @@ def run(TOP_DIR, FILENAME):
 
   if not any(FILENAME in i for i in identifiers):
     print '\nERROR: \"' + FILENAME + '\" is not a valid launch file.'
-    print 'Please a launch file from this list, or add to the list with roslauncher -a LAUNCHFILE'
+    print 'Please select a launch file from this list, or add to the list with roslauncher -a LAUNCHFILE'
 
     # Need to reload the file to grab package names as well for error output
     error_list = [ ('\t' + i).replace('.launch', '') for i in identifiers]
