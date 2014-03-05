@@ -32,12 +32,12 @@ Get a list of launch files available for editing and/or launching
       ./roslauncher.py -l
 
 
-Launch a launch file known to roslauncher (to see a list of files known to roslauncher, use ./roslauncher --list)
+Launch a launch file known to roslauncher (to see a list of files known to roslauncher, use ./roslauncher -l)
 
       ./roslauncher.py ROS_PACKAGE/LAUNCH_FILE
 
 
-For example to launch the test.launch file in the ROS package named example_graph_slam:
+For example, to launch the test.launch file in the ROS package named example_graph_slam:
 
       ./roslauncher.py example_graph_slam/test
 

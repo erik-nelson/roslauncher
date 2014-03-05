@@ -66,7 +66,7 @@ def parse_arguments(TOP_DIR) :
   parser.add_argument('-a',              help='add a roslaunch file',                              required=False, dest='add')
   parser.add_argument('-s',              help='scan a root directory for launch files beneath it', required=False, dest='scan')
   parser.add_argument('-p',              help='search a launch file for param files to edit',      required=False, dest='param')
-  parser.add_argument('-l',              help='list all roslaunch known files',                    required=False, dest='list', action='store_true')
+  parser.add_argument('-l',              help='list all known roslaunch files',                    required=False, dest='list', action='store_true')
 
   # Get the user's flags
   args = vars(parser.parse_args())
