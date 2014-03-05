@@ -11,9 +11,9 @@ Roslauncher is a utility designed to simplify the hassle of dealing with editing
       cd ~/DOWNLOAD_PATH
       git clone https://github.com/enelsonCMU/roslauncher.git
 
-To call roslauncher from anywhere, set up an alias in your .bashrc file
+To call roslauncher from anywhere, set up an alias in your .bashrc file (remember to change DOWNLOAD_PATH in the command below)
 
-      echo "alias roslauncher='PYTHONPATH=${PYTHONPATH}:~/PATH_TO_ROSLAUNCHER/python python ~/PATH_TO_ROSLAUNCHER/roslauncher" >> ~/.bashrc
+      echo "alias roslauncher='PYTHONPATH=${PYTHONPATH}:~/DOWNLOAD_PATH/python python ~/DOWNLOAD_PATH/roslauncher" >> ~/.bashrc
 
 ## Uses:
 
